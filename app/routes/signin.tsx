@@ -12,9 +12,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function SignIn() {
-  return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 justify-center">
-      <SignInForm />
-    </div>
-  );
+  return <SignInForm />;
 }

@@ -1,7 +1,7 @@
 import { getSessionData } from "@/app/hooks/get-session-data";
-import { Link, useNavigate } from "react-router";
+import { ArrowBigUpIcon, MessageSquareIcon } from "lucide-react";
+import { useNavigate } from "react-router";
 import { Button } from "../components/ui/button";
-import { authClient } from "../lib/auth-client";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -42,22 +42,37 @@ export default function Home() {
     ); // Or you could show a loading state
   }
 
-  const signoutHandler = async () => {
-    await authClient.signOut({
-      fetchOptions: {
-        onSuccess: () => {
-          navigate("/signup", { replace: true }); // redirect to login page
-        },
-      },
-    });
-  };
-
   return (
-    <main className="flex items-center justify-center min-h-screen">
+    <main>
       <div>
-        <h1>User's name: {name}</h1>
-        <p>Email: {email}</p>
-        <Button onClick={signoutHandler}>SignOut</Button>
+        <div className="space-y-2 border p-2.5 rounded-md">
+          <p className="text-xs font-medium bg-secondary w-fit px-4 py-0.5 rounded-md border">
+            sample@mail.com
+          </p>
+          <div>
+            <h2 className="truncate text-sm sm:text-base font-medium">
+              This is a sample post title
+            </h2>
+            <p className="line-clamp-2 text-xs sm:text-sm text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              animi aperiam, harum quo laboriosam dolore, mollitia pariatur
+              neque cum similique iusto enim distinctio nemo minus sunt! Nisi,
+              consequatur. Aut, officia voluptatibus ullam atque officiis animi?
+              Eos ipsum quidem facere animi!
+            </p>
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <Button size={"sm"} variant={"secondary"}>
+              <ArrowBigUpIcon size={26} />
+              12.3K
+            </Button>
+            <Button size={"sm"} variant={"secondary"}>
+              <MessageSquareIcon size={17} />
+              500
+            </Button>
+          </div>
+        </div>
       </div>
     </main>
   );
