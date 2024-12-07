@@ -2,13 +2,17 @@ import { z } from "zod";
 
 export const SignUpSchema = z
   .object({
-    name: z
+    username: z
       .string()
-      .min(4, {
-        message: "Name of at least four characters is needed..",
+      .regex(
+        /^[a-zA-Z0-9_]+$/,
+        "Username can only contain letters, numbers, and underscores, without spaces",
+      )
+      .min(1, {
+        message: "Username of atleast four characters needed.",
       })
-      .max(100, {
-        message: "Maximum hundred characters acceptable.",
+      .max(12, {
+        message: "Maximum twelve characters acceptable.",
       }),
     email: z.string().email({
       message: "A valid email is required",

@@ -30,7 +30,7 @@ export default function SignUpForm() {
   const form = useForm<z.infer<typeof SignUpSchema>>({
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
-      name: "",
+      username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -39,13 +39,13 @@ export default function SignUpForm() {
 
   const navigate = useNavigate();
   const signupHandler = async (values: z.infer<typeof SignUpSchema>) => {
-    const { email, confirmPassword, name } = values;
+    const { email, confirmPassword, username } = values;
 
     await authClient.signUp.email(
       {
         email,
         password: confirmPassword,
-        name,
+        name: username,
         callbackURL: "/signin",
       },
       {
@@ -80,14 +80,14 @@ export default function SignUpForm() {
           <div className="space-y-3 md:space-y-4">
             <FormField
               control={form.control}
-              name="name"
+              name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Username</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="John Doe"
+                      placeholder="johndoe"
                       type="text"
                       disabled={loading}
                     />
