@@ -60,7 +60,7 @@ export default function SignInForm() {
           setLoading(false);
           form.reset();
         },
-      }
+      },
     );
   };
   // handles auto filling fields with guest user details

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import {
   Card,
   CardContent,
@@ -6,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/components/ui/card";
-import { Link } from "react-router";
 
 type AuthCardProps = {
   title: string;
@@ -33,7 +33,7 @@ export default function AuthCard({
       <CardFooter className="flex items-center justify-center">
         <Link
           to={changeHref}
-          className="underline text-sm font-medium underline-offset-4"
+          className="text-sm font-medium underline underline-offset-4"
         >
           {footer}
         </Link>

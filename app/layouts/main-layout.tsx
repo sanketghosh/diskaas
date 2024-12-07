@@ -1,7 +1,10 @@
+// packages
 import { QuoteIcon } from "lucide-react";
 import { Link, Outlet } from "react-router";
-import { Button, buttonVariants } from "../components/ui/button";
-import { cn } from "../lib/utils";
+
+// components
+import { Button, buttonVariants } from "@/app/components/ui/button";
+import { cn } from "@/app/lib/utils";
 
 const links = [
   {
@@ -17,14 +20,14 @@ const links = [
 export default function MainLayout() {
   return (
     <main className="w-full">
-      <div className="max-w-4xl mx-auto">
-        <header className="bg-orange-500 py-3 flex items-center px-4 justify-between">
-          <nav className="md:space-x-6 flex flex-col md:flex-row md:items-center">
+      <div className="mx-auto max-w-4xl">
+        <header className="flex items-center justify-between bg-orange-500 px-4 py-3">
+          <nav className="flex flex-col md:flex-row md:items-center md:space-x-6">
             <Link
               to={"/"}
-              className="font-semibold flex items-center gap-0.5 text-lg"
+              className="flex items-center gap-0.5 text-lg font-semibold"
             >
-              <div className="size-5 text-orange-500 flex items-center bg-foreground justify-center">
+              <div className="flex size-5 items-center justify-center bg-foreground text-orange-500">
                 <QuoteIcon size={15} className="fill-orange-500" />
               </div>
               diskaas
@@ -47,7 +50,7 @@ export default function MainLayout() {
               buttonVariants({
                 size: "sm",
                 variant: "secondary",
-              })
+              }),
             )}
           >
             signup

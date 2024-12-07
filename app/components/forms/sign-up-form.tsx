@@ -64,7 +64,7 @@ export default function SignUpForm() {
           form.reset();
           setLoading(false);
         },
-      }
+      },
     );
   };
 
