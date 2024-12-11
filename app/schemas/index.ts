@@ -9,7 +9,7 @@ export const SignUpSchema = z
         "Username can only contain letters, numbers, and underscores, without spaces",
       )
       .min(1, {
-        message: "Username of atleast four characters needed.",
+        message: "Username of at least four characters needed.",
       })
       .max(12, {
         message: "Maximum twelve characters acceptable.",
@@ -32,6 +32,11 @@ export const SignInSchema = z.object({
     message: "Not a valid email address.",
   }),
   password: z.string().min(6, {
-    message: "Must be of atleast six characters.",
+    message: "Must be of at least six characters.",
   }),
+});
+
+export const CreatePostSchema = z.object({
+  title: z.string({ required_error: "A post title is must" }),
+  description: z.string(),
 });

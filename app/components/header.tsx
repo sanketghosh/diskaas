@@ -16,7 +16,7 @@ const links: { href: string; label: string }[] = [
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between bg-orange-500 px-4 py-3">
+    <header className="flex h-16 items-center justify-between bg-orange-500 px-4 py-3">
       <nav className="flex flex-col md:flex-row md:items-center md:space-x-6">
         <Link
           to={"/"}
